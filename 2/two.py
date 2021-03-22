@@ -63,10 +63,17 @@ if __name__ == '__main__':
 
     with open(args.filename) as f:
         for entry in f:
-            if is_valid_password_1(entry):
-                total_valid_passwords_1 += 1
-            if is_valid_password_2(entry):
-                total_valid_passwords_2 += 1
+            try:
+                if is_valid_password_1(entry):
+                    total_valid_passwords_1 += 1
+            except ParseError as e:
+                print(e)
+
+            try:
+                if is_valid_password_2(entry):
+                    total_valid_passwords_2 += 1
+            except ParseError as e:
+                print(e)
 
     print(f'Total Valid Passwords - Part 1: {total_valid_passwords_1}')
     print(f'Total Valid Passwords - Part 2: {total_valid_passwords_2}')
