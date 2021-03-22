@@ -29,7 +29,7 @@ def test_no_two_entries_add_to_target(data, target_number):
 
 @pytest.mark.parametrize("data,target_number", [
     ([1, 2, 3, 4, 5], 6),
-    ([1, 2, -3, 4, 5], -2),
+    ([1, 2, -3, 4, 5], -2),  # test negative target number
     ([1.5, 2, 4, 5.5, 8], 9),  # test entries can be floats
 ])
 def test_find_three_entries(data, target_number):
